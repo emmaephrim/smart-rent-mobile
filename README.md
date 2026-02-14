@@ -148,7 +148,7 @@ Backend:
 
 ### 1️⃣ Clone the repository
 
-git clone [https://github.com/your-username/smart-rent-mobile.git]()
+git clone [https://github.com/emmaephrim/smart-rent-mobile.git]()
 
 cd smart-rent-mobile
 
@@ -186,10 +186,13 @@ Create an `.env` file in the root:
 ## 📱 Platform Support
 
 - Android
-- iOS (planned)
-- Web (future consideration)
+- iOS
+- Web
 
----
+## 🔗 Related Repositories
+
+- [API Repository (Spring Boot)](https://github.com/emmaephrim/smart-rent-api.git)
+- [Web App Repository (Angular)](https://github.com/emmaephrim/smart-rent-web.git)
 
 ## 👨🏾‍💻 Author
 
@@ -202,4 +205,4 @@ Built as part of a scalable property-tech ecosystem focused on solving real hous
 
 ## 📄 License
 
-MIT License
+This project is for educational and portfolio purposes.
