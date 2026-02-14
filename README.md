@@ -154,7 +154,11 @@ cd smart-rent-mobile
 
 ### 2️⃣ Install dependencies
 
+flutter pub get
+
 ### 3️⃣ Run the app
+
+flutter run
 
 ---
 
