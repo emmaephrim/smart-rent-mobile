@@ -1,8 +1,8 @@
 name: smart_rent_mobile
-description: "A new Flutter project."
+description: "Mobile Application for Smart Rent"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -34,6 +34,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  icons_launcher: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -49,9 +50,18 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+icons_launcher:
+  image_path: "assets/launcher/launcher_icon.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+      adaptive_background_color: "#ffffff"
+      adaptive_foreground_image: "assets/icon.png"
+
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
