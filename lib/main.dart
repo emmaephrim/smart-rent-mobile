@@ -3,6 +3,7 @@ import 'package:smart_rent_mobile/core/theme/app_gradients.dart';
 import 'package:smart_rent_mobile/core/theme/app_colors.dart';
 import 'package:smart_rent_mobile/core/theme/app_theme.dart';
 import 'package:smart_rent_mobile/features/home/presentation/home_screen.dart';
+import 'package:smart_rent_mobile/features/navigation/presentation/screens/main_navigation_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Smart Rent',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const HomeScreen(isLoggedIn: false),
+      home: const MainNavigationScreen(),
     );
   }
 }
