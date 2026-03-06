@@ -16,21 +16,31 @@ class HomeScreen extends StatelessWidget {
           children: [
             HomeHeader(
               isLoggedIn: isLoggedIn,
-              userName: isLoggedIn ? "Emmanuel" : null,
-              role: isLoggedIn ? "Renter" : null,
+              userName: "Emmanuel",
+              role: "RENTER",
+              location: "Cape Coast, Ghana",
             ),
+
             const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("What can you rent?", style: AppTextStyles.headline2),
-                  const SizedBox(height: 16),
-                  const CategoryGrid(),
-                ],
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "What can you rent?",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
+
+            // const SizedBox(height: 5),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: CategoryGrid(),
+            ),
+
+            const SizedBox(height: 40),
           ],
         ),
       ),
