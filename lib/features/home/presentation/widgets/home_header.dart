@@ -7,38 +7,77 @@ import 'package:smart_rent_mobile/core/theme/app_text_styles.dart';
 class HomeHeader extends StatelessWidget {
   final bool isLoggedIn;
   final String? userName;
+  final String? location;
   final String? role;
 
   const HomeHeader({
     super.key,
     required this.isLoggedIn,
     this.userName,
+    this.location,
     this.role,
   });
 
   @override
   Widget build(BuildContext context) {
+    final headerColor = isLoggedIn
+        ? AppColors.headerBackground
+        : AppColors.guestHeaderBackground;
+
     return Container(
-      height: 200,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      decoration: const BoxDecoration(gradient: AppGradients.mainBackground),
+      padding: const EdgeInsets.fromLTRB(20, 40, 20, 25),
+      decoration: BoxDecoration(
+        color: headerColor,
+        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Top Row
+          /// TOP ROW
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset("assets/images/brandmark.png", height: 40),
+              /// BRAND
               Row(
                 children: [
-                  const Icon(Icons.notifications_none, size: 28),
-                  const SizedBox(width: 12),
+                  Image.asset("assets/images/brandmark.png", height: 40),
+                  const SizedBox(width: 10),
+                  const Text(
+                    "Smart Rent",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+
+              /// NOTIFICATION + PROFILE
+              Row(
+                children: [
+                  Stack(
+                    children: [
+                      const Icon(Icons.notifications_none, size: 28),
+                      Positioned(
+                        right: 2,
+                        top: 2,
+                        child: Container(
+                          height: 8,
+                          width: 8,
+                          decoration: const BoxDecoration(
+                            color: Colors.green,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(width: 15),
+
                   CircleAvatar(
+                    radius: 22,
                     backgroundColor: AppColors.primary,
                     child: isLoggedIn
                         ? Text(
-                            userName![0].toUpperCase(),
+                            userName![0],
                             style: const TextStyle(color: Colors.white),
                           )
                         : const Icon(Icons.person, color: Colors.white),
@@ -48,22 +87,30 @@ class HomeHeader extends StatelessWidget {
             ],
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 20),
 
-          // Greeting Tagline
-          if (isLoggedIn)
-            (Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          /// GREETING / TAGLINE
+          if (isLoggedIn) ...[
+            Text("Good morning ☀️,", style: AppTextStyles.bodyMedium),
+
+            const SizedBox(height: 2),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Good Afternoon, $userName 👋🏾",
-                  style: AppTextStyles.headline2,
+                  userName ?? "",
+                  style: AppTextStyles.headline2.copyWith(
+                    color: AppColors.primary,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                const SizedBox(height: 4),
+
+                // const SizedBox(width: 40),
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 4,
+                    horizontal: 14,
+                    vertical: 5,
                   ),
                   decoration: BoxDecoration(
                     color: AppColors.tagBackground,
@@ -72,58 +119,97 @@ class HomeHeader extends StatelessWidget {
                   child: Text(
                     role ?? "",
                     style: const TextStyle(
-                      color: AppColors.primary,
+                      color: AppColors.primaryDark,
                       fontWeight: FontWeight.w600,
                       fontSize: 12,
                     ),
                   ),
                 ),
               ],
-            ))
-          else
-            Text(
-              "Find Anything. Rent Anywhere",
-              style: AppTextStyles.headline1,
             ),
 
-          const SizedBox(height: 14),
+            const SizedBox(height: 6),
 
-          /// Search Bar
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              color: AppColors.surface,
-              borderRadius: BorderRadius.circular(30),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
-                  blurRadius: 8,
+            Row(
+              children: [
+                const Icon(Icons.location_on, size: 16, color: Colors.blue),
+                const SizedBox(width: 6),
+                Text(
+                  location ?? "",
+                  style: const TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ],
             ),
-            child: const TextField(
-              decoration: InputDecoration(
-                icon: Icon(Icons.search),
-                hintText: "Search properties, vehicles...",
-                border: InputBorder.none,
+          ] else ...[
+            Text(
+              "Find Anything.\nRent Anywhere....",
+              style: AppTextStyles.headline2.copyWith(
+                fontStyle: FontStyle.italic,
               ),
             ),
-          ),
 
-          if (!isLoggedIn)
-            (Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Row(
-                children: [
-                  TextButton(onPressed: () {}, child: const Text("Sign In")),
-                  const SizedBox(width: 10),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text("Create Account"),
+            const SizedBox(height: 10),
+
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 5,
                   ),
-                ],
-              ),
-            )),
+                  decoration: BoxDecoration(
+                    color: AppColors.tagBackground,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Text(
+                    "GUEST",
+                    style: TextStyle(
+                      color: AppColors.primaryDark,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(width: 15),
+
+                GestureDetector(
+                  onTap: () {},
+                  child: const Text(
+                    "Sign In",
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+
+          const SizedBox(height: 20),
+
+          /// SEARCH BAR
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            height: 48,
+            decoration: BoxDecoration(
+              color: AppColors.surface,
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: const Row(
+              children: [
+                Icon(Icons.search, color: Colors.grey),
+                SizedBox(width: 10),
+                Text(
+                  "Search properties, vehicles...",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
