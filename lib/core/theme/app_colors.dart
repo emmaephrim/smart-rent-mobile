@@ -6,6 +6,10 @@ class AppColors {
   static const Color primary = Color(0xFF6B8E23);
   static const Color primaryDark = Color(0xFF4F6D12);
 
+  // HEADER COLORS
+  static const Color headerBackground = Color(0xFFF0F3E6);
+  static const Color guestHeaderBackground = Color(0xFFC7DD9F);
+
   // BACKGROUNDS
   static const Color backgroundLight = Color(0xFFF5F5F5);
   static const Color surface = Color(0xFFFFFFFF);
