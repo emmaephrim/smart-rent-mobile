@@ -8,54 +8,29 @@ class CategoryGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categories = [
-      const Category(
-        title: "Properties",
-        imagePath: "assets/images/categories/properties.png",
-      ),
-      const Category(
-        title: "Short Stay",
-        imagePath: "assets/images/categories/short_stay.png",
-      ),
-      const Category(
-        title: "Vehicles",
-        imagePath: "assets/images/categories/vehicles.png",
-      ),
-      const Category(
-        title: "Equipments",
-        imagePath: "assets/images/categories/equipments.png",
-      ),
-      const Category(
-        title: "Event Spaces",
-        imagePath: "assets/images/categories/event_spaces.png",
-      ),
-      const Category(
-        title: "Services",
-        imagePath: "assets/images/categories/services.png",
-      ),
-      const Category(
-        title: "More",
-        imagePath: "assets/images/categories/more.png",
-      ),
+      ("assets/images/categories/properties.png", "Properties"),
+      ("assets/images/categories/short_stay.png", "Short Stay"),
+      ("assets/images/categories/vehicles.png", "Vehicles"),
+      ("assets/images/categories/equipments.png", "Equipments"),
+      ("assets/images/categories/event_spaces.png", "Event Spaces"),
+      ("assets/images/categories/services.png", "Services"),
+      ("assets/images/categories/more.png", "View More"),
     ];
+
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: categories.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 16,
-        crossAxisSpacing: 16,
-        childAspectRatio: 1,
+        crossAxisCount: 3,
+        mainAxisSpacing: 18,
+        crossAxisSpacing: 12,
+        childAspectRatio: .85,
       ),
       itemBuilder: (context, index) {
-        final category = categories[index];
-        return CategoryCard(
-          title: category.title,
-          imagePath: category.imagePath,
-          onTap: () {
-            debugPrint("Tapped ${category.title}");
-          },
-        );
+        final item = categories[index];
+
+        return CategoryCard(image: item.$1, label: item.$2, onTap: () {});
       },
     );
   }
