@@ -40,7 +40,7 @@ class HomeHeader extends StatelessWidget {
               /// BRAND
               Row(
                 children: [
-                  Image.asset("assets/images/brandmark.png", height: 40),
+                  Image.asset("assets/images/logo.png", height: 40),
                   const SizedBox(width: 10),
                   const Text(
                     "Smart Rent",
