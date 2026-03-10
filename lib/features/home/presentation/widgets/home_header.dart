@@ -29,6 +29,14 @@ class HomeHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: headerColor,
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, 4),
+            blurRadius: 4,
+            spreadRadius: 0,
+            color: Colors.black.withOpacity(0.5),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
