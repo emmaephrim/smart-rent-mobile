@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smart_rent_mobile/core/theme/app_colors.dart';
-import 'package:smart_rent_mobile/core/theme/app_gradients.dart';
 import 'package:smart_rent_mobile/core/theme/app_text_styles.dart';
 
 // TODO: difference between imports with  package: imports  and the one without package, just path
@@ -20,14 +19,10 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final headerColor = isLoggedIn
-        ? AppColors.headerBackground
-        : AppColors.guestHeaderBackground;
-
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 40, 20, 25),
       decoration: BoxDecoration(
-        color: headerColor,
+        color: AppColors.headerBackground,
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
         boxShadow: [
           BoxShadow(
@@ -70,7 +65,7 @@ class HomeHeader extends StatelessWidget {
                           height: 8,
                           width: 8,
                           decoration: const BoxDecoration(
-                            color: Colors.green,
+                            color: AppColors.info,
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -121,7 +116,7 @@ class HomeHeader extends StatelessWidget {
                     vertical: 5,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.tagBackground,
+                    color: AppColors.mainTagBackground,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -140,12 +135,12 @@ class HomeHeader extends StatelessWidget {
 
             Row(
               children: [
-                const Icon(Icons.location_on, size: 16, color: Colors.blue),
+                const Icon(Icons.location_on, size: 16, color: AppColors.info),
                 const SizedBox(width: 6),
                 Text(
                   location ?? "",
                   style: const TextStyle(
-                    color: Colors.blue,
+                    color: AppColors.info,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
