@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 location: "Cape Coast, Ghana",
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
 
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
