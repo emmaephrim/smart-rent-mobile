@@ -28,5 +28,6 @@ class AppColors {
   static const Color error = Color(0xFFDC2626);
 
   // TAGS
+  static const Color mainTagBackground = Color(0xFFC7DD9F);
   static const Color tagBackground = Color(0xFFEAF2D1);
 }
