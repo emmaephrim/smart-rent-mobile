@@ -15,38 +15,47 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Container(
         decoration: BoxDecoration(gradient: AppGradients.mainBackground),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              HomeHeader(
-                isLoggedIn: isLoggedIn,
-                userName: "Emmanuel",
-                role: "RENTER",
-                location: "Cape Coast, Ghana",
-              ),
+        child: Column(
+          // Use a Column to stack the fixed and scrollable parts
+          children: [
+            // 1. FIXED HEADER (Stays at the top)
+            HomeHeader(
+              isLoggedIn: isLoggedIn,
+              userName: "Emmanuel",
+              role: "RENTER",
+              location: "Cape Coast, Ghana",
+            ),
 
-              const SizedBox(height: 15),
-
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "What can you rent?",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
+            // 2. SCROLLABLE AREA
+            Expanded(
+              // Expanded ensures the scroll view takes up the remaining space
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 15),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "What can you rent?",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: CategoryGrid(),
+                    ),
+                    const SizedBox(height: 40),
+                  ],
                 ),
               ),
-
-              // const SizedBox(height: 5),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: CategoryGrid(),
-              ),
-
-              const SizedBox(height: 40),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
