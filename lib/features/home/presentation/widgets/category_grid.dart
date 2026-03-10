@@ -14,6 +14,8 @@ class CategoryGrid extends StatelessWidget {
       ("assets/images/categories/equipments.png", "Equipments"),
       ("assets/images/categories/event_spaces.png", "Event Spaces"),
       ("assets/images/categories/services.png", "Services"),
+      ("assets/images/categories/fashion.png", "Fashion"),
+      ("assets/images/categories/furniture.png", "Furniture"),
       ("assets/images/categories/more.png", "View More"),
     ];
 
