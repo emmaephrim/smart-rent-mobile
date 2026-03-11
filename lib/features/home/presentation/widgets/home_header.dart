@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:smart_rent_mobile/core/theme/app_colors.dart';
 import 'package:smart_rent_mobile/core/theme/app_text_styles.dart';
 
-// TODO: difference between imports with  package: imports  and the one without package, just path
 class HomeHeader extends StatelessWidget {
   final bool isLoggedIn;
   final String? userName;
@@ -118,12 +117,20 @@ class HomeHeader extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: AppColors.mainTagBackground,
                     borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(0, 2),
+                        blurRadius: 2,
+                        spreadRadius: 0,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                    ],
                   ),
                   child: Text(
                     role ?? "",
                     style: const TextStyle(
                       color: AppColors.primaryDark,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
                   ),
@@ -147,46 +154,57 @@ class HomeHeader extends StatelessWidget {
               ],
             ),
           ] else ...[
-            Text(
-              "Find Anything.\nRent Anywhere....",
-              style: AppTextStyles.headline2.copyWith(
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 5,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.tagBackground,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Text(
-                    "GUEST",
-                    style: TextStyle(
-                      color: AppColors.primaryDark,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  "Find Anything.\nRent Anywhere....",
+                  style: AppTextStyles.headline2.copyWith(
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
 
-                const SizedBox(width: 15),
-
-                GestureDetector(
-                  onTap: () {},
-                  child: const Text(
-                    "Sign In",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w600,
+                Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.mainTagBackground,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: const Offset(0, 2),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                            color: Colors.black.withOpacity(0.5),
+                          ),
+                        ],
+                      ),
+                      child: const Text(
+                        "GUEST",
+                        style: TextStyle(
+                          color: AppColors.primaryDark,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  ),
+
+                    const SizedBox(height: 10),
+
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Text(
+                        "Sign In",
+                        style: TextStyle(
+                          color: AppColors.info,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -199,16 +217,24 @@ class HomeHeader extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 48,
             decoration: BoxDecoration(
-              color: AppColors.surface,
-              borderRadius: BorderRadius.circular(25),
+              color: AppColors.mainTagBackground,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0, 2),
+                  blurRadius: 2,
+                  spreadRadius: 0,
+                  color: Colors.black.withOpacity(0.5),
+                ),
+              ],
             ),
             child: const Row(
               children: [
-                Icon(Icons.search, color: Colors.grey),
+                Icon(Icons.search, color: AppColors.textPrimary),
                 SizedBox(width: 10),
                 Text(
                   "Search properties, vehicles...",
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: AppColors.textPrimary),
                 ),
               ],
             ),
