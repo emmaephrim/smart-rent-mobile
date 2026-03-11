@@ -3,11 +3,16 @@ import 'package:smart_rent_mobile/core/theme/app_gradients.dart';
 import 'package:smart_rent_mobile/features/home/presentation/widgets/category_grid.dart';
 import 'package:smart_rent_mobile/features/home/presentation/widgets/home_header.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   final bool isLoggedIn;
 
   const HomeScreen({super.key, required this.isLoggedIn});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             // 1. FIXED HEADER (Stays at the top)
             HomeHeader(
-              isLoggedIn: isLoggedIn,
+              isLoggedIn: widget.isLoggedIn,
               userName: "Emmanuel",
               role: "RENTER",
               location: "Cape Coast, Ghana",
