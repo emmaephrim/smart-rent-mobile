@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smart_rent_mobile/core/theme/app_gradients.dart';
-import 'package:smart_rent_mobile/core/theme/app_text_styles.dart';
 import 'package:smart_rent_mobile/features/home/presentation/widgets/category_grid.dart';
 import 'package:smart_rent_mobile/features/home/presentation/widgets/home_header.dart';
 
