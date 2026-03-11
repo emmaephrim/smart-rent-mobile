@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:smart_rent_mobile/features/home/domain/entities/category.dart';
 import 'package:smart_rent_mobile/features/home/presentation/widgets/category_card.dart';
 
 class CategoryGrid extends StatelessWidget {
