@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_rent_mobile/core/theme/app_colors.dart';
-import 'package:smart_rent_mobile/core/theme/app_text_styles.dart';
 
 class CategoryCard extends StatelessWidget {
   final String image;
