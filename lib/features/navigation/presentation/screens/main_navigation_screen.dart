@@ -12,7 +12,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const HomeScreen(isLoggedIn: false),
+    const HomeScreen(),
     const Placeholder(),
     const Placeholder(),
     const Placeholder(),
