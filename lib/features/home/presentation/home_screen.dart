@@ -20,7 +20,7 @@ class HomeScreen extends ConsumerWidget {
           children: [
             HomeHeader(
               isLoggedIn: authState.isLoggedIn,
-              userName: authState.userName ?? "Guest",
+              userName: authState.userName ?? "Emmanuel",
               role: authState.role ?? "GUEST",
               location: "Cape Coast, Ghana",
             ),
