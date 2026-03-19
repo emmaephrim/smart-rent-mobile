@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smart_rent_mobile/core/theme/app_colors.dart';
 import 'package:smart_rent_mobile/core/theme/app_text_styles.dart';
 
@@ -196,11 +197,14 @@ class HomeHeader extends StatelessWidget {
 
                     GestureDetector(
                       onTap: () {},
-                      child: const Text(
-                        "Sign In",
-                        style: TextStyle(
-                          color: AppColors.info,
-                          fontWeight: FontWeight.w600,
+                      child: TextButton(
+                        onPressed: () => context.go('/login'),
+                        child: const Text(
+                          "Sign In",
+                          style: TextStyle(
+                            color: AppColors.info,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
