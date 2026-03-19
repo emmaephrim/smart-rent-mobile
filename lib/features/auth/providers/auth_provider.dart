@@ -7,7 +7,7 @@ class AuthState {
   final String? userName;
   final String? role;
 
-  const AuthState({this.isLoggedIn = true, this.userName, this.role});
+  const AuthState({this.isLoggedIn = false, this.userName, this.role});
 
   AuthState copyWith({bool? isLoggedIn, String? userName, String? role}) {
     return AuthState(
