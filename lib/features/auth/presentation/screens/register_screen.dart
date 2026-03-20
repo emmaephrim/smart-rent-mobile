@@ -31,15 +31,21 @@ class RegisterScreen extends StatelessWidget {
                     ],
                   ),
 
-                  const Text(
-                    "Sign up",
-                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Sign up",
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
 
                   const SizedBox(height: 8),
 
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Text("Already have an account? "),
                       GestureDetector(
