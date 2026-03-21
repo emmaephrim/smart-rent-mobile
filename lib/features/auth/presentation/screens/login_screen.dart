@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sign_in_button/sign_in_button.dart';
+import 'package:smart_rent_mobile/core/theme/app_colors.dart';
 import 'package:smart_rent_mobile/core/theme/app_gradients.dart';
 import 'package:smart_rent_mobile/features/auth/providers/auth_provider.dart';
 
@@ -17,19 +19,22 @@ class LoginScreen extends ConsumerWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/images/logo.png", height: 40),
-                    const SizedBox(width: 10),
-                    const Text(
-                      "Smart Rent",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                GestureDetector(
+                  onTap: () => context.go('/'),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset("assets/images/logo.png", height: 40),
+                      const SizedBox(width: 10),
+                      const Text(
+                        "Smart Rent",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
 
                 SizedBox(height: 20),
@@ -43,14 +48,27 @@ class LoginScreen extends ConsumerWidget {
                   ),
                   child: Column(
                     children: [
-                      const Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Stack(
+                        alignment: Alignment
+                            .centerLeft, // Aligns the button to the start
+                        children: [
+                          const SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              "Login",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () => context.pop(),
+                            icon: const Icon(Icons.arrow_back),
+                          ),
+                        ],
                       ),
-
                       const SizedBox(height: 8),
 
                       Row(
@@ -58,10 +76,13 @@ class LoginScreen extends ConsumerWidget {
                         children: [
                           const Text("Don’t have an account? "),
                           GestureDetector(
-                            onTap: () => context.go('/register'),
+                            onTap: () => context.push('/register'),
                             child: const Text(
                               "Sign Up",
-                              style: TextStyle(color: Colors.blue),
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],
@@ -75,9 +96,18 @@ class LoginScreen extends ConsumerWidget {
 
                       const SizedBox(height: 10),
 
-                      const TextField(
+                      TextField(
                         obscureText: true,
-                        decoration: InputDecoration(labelText: "Password"),
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              Icons.visibility_off,
+                              color: Colors.grey.shade600,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ),
                       ),
 
                       const SizedBox(height: 20),
@@ -93,29 +123,46 @@ class LoginScreen extends ConsumerWidget {
                           child: const Text("Log In"),
                         ),
                       ),
-
-                      const SizedBox(height: 20),
-
+                      const SizedBox(height: 10),
                       const Text("Or"),
-
-                      const SizedBox(height: 20),
-
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Continue with Google"),
-                        ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: SignInButton(
+                              padding: EdgeInsets.symmetric(vertical: 4),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              Buttons.google,
+                              text: "Continue with Google",
+                              textStyle: TextStyle(fontWeight: FontWeight.bold),
+                              onPressed: () {},
+                            ),
+                          ),
+                        ],
                       ),
-
-                      const SizedBox(height: 15),
-
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Continue with Facebook"),
-                        ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: SignInButton(
+                              padding: EdgeInsets.symmetric(vertical: 10),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              Buttons.facebook,
+                              text: "Continue with Facebook",
+                              textStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.surface,
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
