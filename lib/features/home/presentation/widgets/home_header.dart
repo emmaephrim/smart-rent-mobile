@@ -198,7 +198,7 @@ class HomeHeader extends StatelessWidget {
                     GestureDetector(
                       onTap: () {},
                       child: TextButton(
-                        onPressed: () => context.go('/login'),
+                        onPressed: () => context.push('/login'),
                         child: const Text(
                           "Sign In",
                           style: TextStyle(
