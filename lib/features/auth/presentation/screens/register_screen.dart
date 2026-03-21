@@ -49,7 +49,7 @@ class RegisterScreen extends StatelessWidget {
                     children: [
                       const Text("Already have an account? "),
                       GestureDetector(
-                        onTap: () => context.go('/login'),
+                        onTap: () => context.push('/login'),
                         child: const Text(
                           "Login",
                           style: TextStyle(color: Colors.blue),
