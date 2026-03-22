@@ -124,7 +124,39 @@ class LoginScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      const Text("Or"),
+
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment
+                            .center, // Aligns widgets vertically in the center
+                        children: <Widget>[
+                          Expanded(
+                            child: Divider(
+                              color: Colors
+                                  .grey
+                                  .shade400, // Customize the line color
+                              thickness: 1, // Customize the line thickness
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0,
+                            ), // Add padding around the text
+                            child: Text(
+                              "Or",
+                              style: const TextStyle(
+                                // color: Colors.grey,
+                              ), // Customize text style
+                            ),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              color: Colors.grey.shade400,
+                              thickness: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+
                       const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
