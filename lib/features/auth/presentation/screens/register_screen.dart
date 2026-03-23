@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:smart_rent_mobile/core/theme/app_colors.dart';
 import 'package:smart_rent_mobile/core/theme/app_gradients.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -23,10 +24,19 @@ class RegisterScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Row(
+                    // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      IconButton(
-                        onPressed: () => context.pop(),
-                        icon: const Icon(Icons.arrow_back),
+                      Transform.translate(
+                        offset: const Offset(
+                          -13,
+                          0,
+                        ), // Adjust the -4 until it lines up perfectly
+                        child: IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                          onPressed: () => context.pop(),
+                          icon: const Icon(Icons.arrow_back),
+                        ),
                       ),
                     ],
                   ),
@@ -52,7 +62,10 @@ class RegisterScreen extends StatelessWidget {
                         onTap: () => context.push('/login'),
                         child: const Text(
                           "Login",
-                          style: TextStyle(color: Colors.blue),
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
