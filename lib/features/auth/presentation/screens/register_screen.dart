@@ -57,7 +57,13 @@ class RegisterScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Text("Already have an account? "),
+                      const Text(
+                        "Already have an account? ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.textTertiary,
+                        ),
+                      ),
                       GestureDetector(
                         onTap: () => context.push('/login'),
                         child: const Text(
@@ -73,29 +79,109 @@ class RegisterScreen extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  const TextField(
-                    decoration: InputDecoration(labelText: "First Name"),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "First Name",
+                        style: TextStyle(color: AppColors.textTertiary),
+                      ),
+                      const SizedBox(height: 8),
+                      const TextField(
+                        decoration: InputDecoration(
+                          hintText: "Smart",
+                          hintStyle: TextStyle(color: AppColors.textTertiary),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Last Name",
+                        style: TextStyle(color: AppColors.textTertiary),
+                      ),
+                      const SizedBox(height: 8),
+                      const TextField(
+                        decoration: InputDecoration(
+                          hintText: "Rent",
+                          hintStyle: TextStyle(color: AppColors.textTertiary),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Email",
+                        style: TextStyle(color: AppColors.textTertiary),
+                      ),
+                      const SizedBox(height: 8),
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: "smart_rent@mail.com",
+                          hintStyle: TextStyle(color: AppColors.textTertiary),
+                          suffixIcon: Icon(
+                            Icons.mail_outline,
+                            color: Colors.grey.shade500,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
 
-                  const TextField(
-                    decoration: InputDecoration(labelText: "Last Name"),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Phone",
+                        style: TextStyle(color: AppColors.textTertiary),
+                      ),
+                      const SizedBox(height: 8),
+                      const TextField(
+                        keyboardType: TextInputType.numberWithOptions(
+                          signed: false,
+                          decimal: false,
+                        ),
+                        decoration: InputDecoration(
+                          hintText: "(233) 123456789",
+                          hintStyle: TextStyle(color: AppColors.textTertiary),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
 
-                  const TextField(
-                    decoration: InputDecoration(labelText: "Email"),
-                  ),
-                  const SizedBox(height: 10),
-
-                  const TextField(
-                    decoration: InputDecoration(labelText: "Phone Number"),
-                  ),
-                  const SizedBox(height: 10),
-
-                  const TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(labelText: "Password"),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Password",
+                        style: TextStyle(color: AppColors.textTertiary),
+                      ),
+                      SizedBox(height: 8),
+                      TextField(
+                        obscuringCharacter: "*",
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          hintText: "Password",
+                          hintStyle: TextStyle(color: AppColors.textTertiary),
+                          suffixIcon: Icon(
+                            Icons.visibility_off_outlined,
+                            color: Colors.grey.shade500,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
 
                   const SizedBox(height: 20),
