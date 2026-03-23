@@ -4,6 +4,7 @@ import 'package:smart_rent_mobile/features/auth/presentation/screens/login_scree
 import 'package:smart_rent_mobile/features/auth/presentation/screens/register_screen.dart';
 import 'package:smart_rent_mobile/features/auth/providers/auth_provider.dart';
 import 'package:smart_rent_mobile/features/home/presentation/home_screen.dart';
+import 'package:smart_rent_mobile/features/navigation/presentation/screens/main_navigation_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authProvider);
@@ -11,7 +12,7 @@ final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: '/',
     routes: [
-      GoRoute(path: '/', builder: (context, state) => HomeScreen()),
+      GoRoute(path: '/', builder: (context, state) => MainNavigationScreen()),
 
       GoRoute(path: '/login', builder: (context, state) => LoginScreen()),
 
